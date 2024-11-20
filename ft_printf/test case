@@ -1,0 +1,125 @@
+int main() {
+    int ret;
+    
+    // Test 1: Basic string
+    ret = ft_printf("Test 1: %s\n", "Hello, World!");
+    printf("Returned: %d\n", ret); 
+    // Expected Output: Test 1: Hello, World!
+    // Returned: 17 (length of the string + "Test 1: " and newline)
+
+    // Test 2: Basic integer
+    ret = ft_printf("Test 2: %d\n", 42);
+    printf("Returned: %d\n", ret); 
+    // Expected Output: Test 2: 42
+    // Returned: 9
+
+    // Test 3: Integer with a negative number
+    ret = ft_printf("Test 3: %d\n", -12345);
+    printf("Returned: %d\n", ret); 
+    // Expected Output: Test 3: -12345
+    // Returned: 12
+
+    // Test 4: Hexadecimal lowercase
+    ret = ft_printf("Test 4: %x\n", 255);
+    printf("Returned: %d\n", ret); 
+    // Expected Output: Test 4: ff
+    // Returned: 5
+
+    // Test 5: Hexadecimal uppercase
+    ret = ft_printf("Test 5: %X\n", 255);
+    printf("Returned: %d\n", ret); 
+    // Expected Output: Test 5: FF
+    // Returned: 5
+
+    // Test 6: Unsigned integer
+    ret = ft_printf("Test 6: %u\n", 4294967295); // Max unsigned int
+    printf("Returned: %d\n", ret); 
+    // Expected Output: Test 6: 4294967295
+    // Returned: 10
+
+    // Test 7: Char
+    ret = ft_printf("Test 7: %c\n", 'A');
+    printf("Returned: %d\n", ret); 
+    // Expected Output: Test 7: A
+    // Returned: 5
+
+    // Test 8: Percent sign
+    ret = ft_printf("Test 8: %%\n");
+    printf("Returned: %d\n", ret); 
+    // Expected Output: Test 8: %
+    // Returned: 4
+
+    // Test 9: Long integer
+    ret = ft_printf("Test 9: %ld\n", 1234567890L);
+    printf("Returned: %d\n", ret); 
+    // Expected Output: Test 9: 1234567890
+    // Returned: 11
+
+    // Test 10: Pointer (address)
+    int *ptr = &ret;
+    ret = ft_printf("Test 10: %p\n", ptr);
+    printf("Returned: %d\n", ret); 
+    // Expected Output: Test 10: 0x[some_address]
+    // Returned: depends on the address value (should be in hexadecimal format)
+
+    // Test 11: Zero integer
+    ret = ft_printf("Test 11: %d\n", 0);
+    printf("Returned: %d\n", ret); 
+    // Expected Output: Test 11: 0
+    // Returned: 9
+
+    // Test 12: Large number (long long)
+    ret = ft_printf("Test 12: %lld\n", LLONG_MAX);
+    printf("Returned: %d\n", ret); 
+    // Expected Output: Test 12: 9223372036854775807
+    // Returned: 19
+
+    // Test 13: Floating-point number
+    ret = ft_printf("Test 13: %.2f\n", 3.14159);
+    printf("Returned: %d\n", ret); 
+    // Expected Output: Test 13: 3.14
+    // Returned: 7
+
+    // Test 14: Padding and width
+    ret = ft_printf("Test 14: |%10d|\n", 42);
+    printf("Returned: %d\n", ret); 
+    // Expected Output: Test 14: |        42|
+    // Returned: 12
+
+    // Test 15: Left justify
+    ret = ft_printf("Test 15: |%-10d|\n", 42);
+    printf("Returned: %d\n", ret); 
+    // Expected Output: Test 15: |42        |
+    // Returned: 12
+
+    // Test 16: Multiple format specifiers
+    ret = ft_printf("Test 16: %d, %s, %c\n", 123, "Hello", 'A');
+    printf("Returned: %d\n", ret);
+    // Expected Output: Test 16: 123, Hello, A
+    // Returned: 19
+
+    // Test 17: Edge case: max/min integer values
+    ret = ft_printf("Test 17: %d\n", INT_MAX);
+    printf("Returned: %d\n", ret);
+    // Expected Output: Test 17: 2147483647
+    // Returned: 11
+
+    ret = ft_printf("Test 18: %d\n", INT_MIN);
+    printf("Returned: %d\n", ret);
+    // Expected Output: Test 18: -2147483648
+    // Returned: 12
+
+    // Test 18: Edge case: zero padding
+    ret = ft_printf("Test 18: %010d\n", 42); // Should print 0000000042
+    printf("Returned: %d\n", ret);
+    // Expected Output: Test 18: 0000000042
+    // Returned: 12
+
+    // Test 19: Multiple characters and string
+    ret = ft_printf("Test 19: |%c %s|\n", 'B', "Test String");
+    printf("Returned: %d\n", ret);
+    // Expected Output: Test 19: |B Test String|
+    // Returned: 19
+
+    return 0;
+}
