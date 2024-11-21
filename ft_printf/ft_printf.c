@@ -6,7 +6,7 @@
 /*   By: ahbilla <ahbilla@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 09:54:30 by ahbilla           #+#    #+#             */
-/*   Updated: 2024/11/21 01:16:02 by ahbilla          ###   ########.fr       */
+/*   Updated: 2024/11/21 23:28:34 by ahbilla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ int	ft_printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
+			if (*format == '\0')
+				break ;
 			ft_handle_format(arg, format, &len);
 			if (*format == '%')
 				ft_putchar('%', &len);
